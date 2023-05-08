@@ -1,8 +1,6 @@
 
 ## Worker API
 
-This project performs CRUD operations on book information. Also, it has user authentication enabled
-
 ### Technologies Used
 
 - Python (version 3.10)
