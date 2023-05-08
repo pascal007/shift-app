@@ -19,8 +19,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         if not (attrs['username'] and attrs['password']):
             raise serializers.ValidationError({'registration': 'All fields are required'})
 
-        if not (6 <= len(attrs['password']) <= 12):
-            raise serializers.ValidationError({'username': 'Password must be 6 - 12 characters long'})
+        if not (6 <= len(attrs['password'])):
+            raise serializers.ValidationError({'username': 'Password must be at least 6 characters long'})
 
         return attrs
 
@@ -60,3 +60,10 @@ class MyTokenRefreshSerializer(serializers.Serializer):
         except Exception as e:
             raise serializers.ValidationError(str(e))
         return token_data
+
+
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = get_user_model()
+        fields = '__all__'

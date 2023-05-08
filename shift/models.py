@@ -5,7 +5,7 @@ from shift.enums import SHIFT_PERIOD
 
 
 class Shift(BaseModel):
-    worker = models.ForeignKey('user.User', on_delete=models.CASCADE, related_name='shift')
+    worker = models.ForeignKey('user.User', on_delete=models.CASCADE, related_name='shift', null=True)
     shift_period = models.CharField(choices=SHIFT_PERIOD, max_length=10)
     date = models.DateField(null=True)
 
